@@ -105,6 +105,37 @@
           }
         }
       }
+    },
+    "lib-powerbi": {
+      "projectType": "library",
+      "root": "projects/lib-powerbi",
+      "sourceRoot": "projects/lib-powerbi/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/lib-powerbi/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/lib-powerbi/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/lib-powerbi/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/lib-powerbi/src/test.ts",
+            "tsConfig": "projects/lib-powerbi/tsconfig.spec.json",
+            "karmaConfig": "projects/lib-powerbi/karma.conf.js"
+          }
+        }
+      }
     }
   },
   "defaultProject": "npm-powerbi"
